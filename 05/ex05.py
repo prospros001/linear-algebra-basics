@@ -24,3 +24,4 @@ splt.set_xticks([])
 splt.set_yticks([])
 
 plt.show()
+
