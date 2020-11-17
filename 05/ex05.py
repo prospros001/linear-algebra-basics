@@ -16,8 +16,8 @@ data_x2 = np.arange(-0.1, 1., 0.01)
 data_y2 = f2(data_x2)
 
 fig, splt = plt.subplots()
-plt.axvline(x=0, coler='r')
-plt.axhline(y=0, coler='r')
+plt.axvline(x=0, color='r')
+plt.axhline(y=0, color='r')
 
 splt.plot(data_x2, data_y2)
 splt.set_xticks([])
