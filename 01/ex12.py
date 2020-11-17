@@ -1,15 +1,16 @@
-# 전치행렬
+# 전치행렬(transpose matrix)
 
 import numpy as np
 
-a = np.arange(15).reshape(3, 5)
-print(a)
+m1 = np.arange(15).reshape(3, 5)
+print(m1, m1.shape)
 
-a1 = a.T
-print(a1)
+m2 = m1.T
+print(m2, m2.shape)
 
-a2 = np.transpose(a)
-print(a2)
+m3 = np.transpose(m1)
+print(m3, m3.shape)
 
-a3 = np.swapaxes(a, 0, 1)
-print(a3)
+m4 = np.swapaxes(m1, 0, 1)
+print(m4, m4.shape)
+
