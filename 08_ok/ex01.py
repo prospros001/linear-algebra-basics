@@ -17,7 +17,7 @@ def f(x):
 
 # 함수 테스트
 # print(f(np.array([3., 4.])))
-gra1 = numerical_gradient(f, np.array([3., 4.]))
+gra1 = numerical_gradient(f, np.array([0., 0.]))
 gra2 = numerical_gradient(f, np.array([-1., -1.5]))
 gra3 = numerical_gradient(f, np.array([-0.25, -0.25]))
 

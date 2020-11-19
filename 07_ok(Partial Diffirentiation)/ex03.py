@@ -15,7 +15,7 @@ def f(x):
     return x[0]**2 + x[1]**2
 
 # (x0, x1) = (2, 4)
-print(f'Numerical Partial Diffierentiation Value:{numerical_partial_diff(f, np.array([2., 4.]))}')
+print(f'Numerical Partial Diffierentiation Value:{numerical_partial_diff(f, np.array([3., 4.]))}')
 
 # (x0, x1) = (3, 1)
 print(f'Numerical Partial Diffierentiation Value:{numerical_partial_diff(f, np.array([3., 1.]))}')

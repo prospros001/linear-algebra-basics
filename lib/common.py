@@ -1,10 +1,12 @@
 import numpy as np
 
+
 # 수치미분(변수가 하나일 때)
 def numerical_diff(f, x):
     h = 1e-4
     dx = (f(x+h) - f(x-h)) / (2 * h)
     return dx
+
 
 # 수치편미분(x 변수가 2개 여러개 일때)
 #     '''
@@ -31,7 +33,26 @@ def numerical_partial_diff(f, x):
     return gradient
 
 
-# 수치미분으로 기울기 구하기
+# 기울기 = 수치편미분
+numerical_gradient = numerical_partial_diff
+
+
+# 경사하강법 구현 : no traning data
+def gradient_descent(f, x, lr=0.01, epoch=100):
+    for i in range(epoch):
+        gradient = numerical_gradient(f, x)
+        # 출력
+        print(f'epoch={i+1}, gradient={gradient}, x={x}')
+        x -= lr * gradient
+
+    return x
+
+
+
+
+
+
+# 기울기 구하기
 def numerical_gradient_training(f, x, data_training):
     h = 1e-4
     gradient = np.zeros_like(x)
