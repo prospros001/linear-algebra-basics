@@ -1,12 +1,20 @@
 # 편미분(Partial Diffirentiation)
+# y = x0**2 + x1**2
+import os
+import sys
+from pathlib import Path
+
+import numpy as np
+
+try:
+    sys.path.append(os.path.join(Path(os.getcwd()).parent, 'lib'))
+    from common import numerical_diff
+except ImportError:
+    print('Library Module Can Not Found')
 
 def f(x0):
     return x0**2 + 4**2
 
-
-def numerical_diff(f, x0):
-    h = 1.0e-4
-    return (f(x0 + h) - f(x0 - h)) / (2 * h)
 
 
 def analytic_diff(x0):
