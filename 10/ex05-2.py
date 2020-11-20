@@ -27,6 +27,35 @@ times = [2, 4, 6, 8]
 ptimes = [0, 4, 2, 3]
 scores = [81, 93, 91, 97]
 
+# 다중선형회귀(수치미분)
+import os
+import sys
+from pathlib import Path
+try:
+    sys.path.append(os.path.join(Path(os.getcwd()).parent, 'lib'))
+    from common import gradient_descent
+except ImportError:
+    print('Library Module Can Not Found')
+import numpy as np
+
+
+def mean_squares_error(x, data_training):
+    data_x0, data_x1, data_y = data_training
+
+    s = 0
+    for i in range(len(data_x0)):
+        data_y_hat = x[0] * data_x0[i] + x[1] * data_x1[i] + x[2]
+        s += ((data_y_hat - data_y[i]) ** 2)
+    e = s / len(data_x0)
+
+    return e
+
+
+# data
+times = [2, 4, 6, 8]
+ptimes = [0, 4, 2, 3]
+scores = [81, 93, 91, 97]
+
 # 경사하강법
 x = np.array([0, 0, 0])
 data_training = (times, ptimes, scores)

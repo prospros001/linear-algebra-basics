@@ -2,13 +2,13 @@
 import os
 import sys
 from pathlib import Path
+from matplotlib import pyplot as plt
 try:
     sys.path.append(os.path.join(Path(os.getcwd()).parent, 'lib'))
     from common import gradient_descent
 except ImportError:
     print('Library Module Can Not Found')
 import numpy as np
-from matplotlib import pyplot as plt
 
 
 def mean_squares_error(x, data_training):
@@ -33,16 +33,18 @@ scores = [81, 93, 91, 97]
 result = gradient_descent(mean_squares_error, np.array([0., 0., 0.]), epoch=5000, data_training=(times, ptimes, scores))
 print(result)
 
-# 그래프
-axes = plt.axes(projection='3d')
-axes.scatter(times, ptimes, scores)
-axes.set_xlabel('study hours')
-axes.set_ylabel('private Class hours')
-axes.set_zlabel('Scores')
-plt.show()
-
 # predict(inference)
 x1_p = 4
 x2_p = 0
 y_p = result[0] * x1_p + result[1] * x2_p + result[2]
 print(f'공부를 {x1_p}시간 하고 과외를 {x2_p}시간 받았을  때, 받을 수 있는 점수는 {y_p}점')
+
+# 그래프
+axes = plt.axes(projection='3d')
+axes.scatter(times, ptimes, scores)
+# axes.plot(times, ptimes, scores)
+axes.set_xlabel('Study Hours')
+axes.set_ylabel('Private Class Hours')
+axes.set_zlabel('Scores')
+
+plt.show()
